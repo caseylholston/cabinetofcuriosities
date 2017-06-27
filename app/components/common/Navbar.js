@@ -12,7 +12,13 @@ const Navbar = () => (
           <Link to="/">Home</Link>
         </li>
         <li className={location.pathname === "/favorites" && "active"}>
-          <Link to="/favorites">Favorites</Link>
+          <Link to="/favorites">Species Search</Link>
+        </li>
+        <li className={location.pathname === "/" && "active"}>
+          <Link to="/">Location Search</Link>
+        </li>
+        <li className={location.pathname === "/favorites" && "active"}>
+          <Link to="/favorites">My Account</Link>
         </li>
       </ul>
     </div>
