@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Panel from "./common/Panel";
 import QuoteForm from "./common/QuoteForm";
 import SearchForm from "./common/SearchForm";
+import LocationSearch from "./LocationSearch";
+import SpeciesSearch from "./SpeciesSearch";
 import API from "../utils/API";
 
 class Home extends Component {

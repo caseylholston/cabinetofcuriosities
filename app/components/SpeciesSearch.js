@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import Panel from "./common/Panel";
+import SearchForm from "./common/SearchForm";
 import API from "../utils/API";
 import NewAPI from "../utils/NewAPI";
 
 
-class Favorites extends Component {
+class SpeciesSearch extends Component {
   constructor() {
     super();
     this.state = {
@@ -51,4 +52,4 @@ class Favorites extends Component {
   }
 }
 
-export default Favorites;
+export default SpeciesSearch;
