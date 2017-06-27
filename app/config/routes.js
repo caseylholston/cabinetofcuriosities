@@ -9,6 +9,8 @@ const routes = (
   <Router history={browserHistory}>
     <Route path="/" component={Main}>
     <Route path="favorites" component={Favorites} />
+    <Route path="SpeciesSearch" component={SpeciesSearch} />
+    <Route path="LocationSearch" component={LocationSearch} />
     <IndexRoute component={Home} />
     </Route>
   </Router>
