@@ -5,7 +5,7 @@ const Navbar = () => (
   <nav style={{ marginBottom: 0 }} className="navbar navbar-inverse">
     <div className="container-fluid">
       <div className="navbar-header">
-        <Link className="navbar-brand" to="/">Quotes App</Link>
+        <Link className="navbar-brand" to="/">Cabinet of Curiosities</Link>
       </div>
       <ul className="nav navbar-nav">
         <li className={location.pathname === "/" && "active"}>

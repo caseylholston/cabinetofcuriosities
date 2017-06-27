@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Panel from "./common/Panel";
 import API from "../utils/API";
+import NewAPI from "../utils/NewAPI";
+
 
 class Favorites extends Component {
   constructor() {
@@ -22,8 +24,8 @@ class Favorites extends Component {
       this.setState({ quotes: favoriteQuotes });
     });
   }
-  // A helper method for rendering one panel for each quote
-  renderQuotes() {
+  // A helper method for rendering one panel for each species
+  renderSpecies() {
     return this.state.quotes.map(quote => (
       <Panel
         quote={quote}
@@ -41,7 +43,7 @@ class Favorites extends Component {
         </div>
         <div className="container">
         <div className="row">
-          {this.renderQuotes()}
+          {this.renderSpecies()}
         </div>
         </div>
       </div>

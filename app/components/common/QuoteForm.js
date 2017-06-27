@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import NewAPI from "../../utils/NewAPI";
 
-class SearchForm extends Component {
+class QuoteForm extends Component {
   constructor() {
     super();
     this.state = {
@@ -17,8 +16,8 @@ class SearchForm extends Component {
     this.setState({ inputValue: event.target.value });
   }
   handleButtonClick() {
-    const newSearch = this.state.inputValue;
-    NewAPI.searchSpecies(searchTerm).then(this.props.getSpecies);
+    const newQuote = this.state.inputValue;
+    API.saveQuote(newQuote).then(this.props.getQuotes);
     this.setState({ inputValue: "" });
   }
   render() {
@@ -26,7 +25,7 @@ class SearchForm extends Component {
       <div className="col-md-6 col-md-offset-3">
         <div style={styles.formStyle} className="form-group">
           <label htmlFor="input-box">
-            Search for a Species
+            Add a quote
           </label>
           <textarea
             style={{
@@ -34,7 +33,7 @@ class SearchForm extends Component {
             }}
             onChange={this.handleInputChange}
             value={this.state.inputValue}
-            placeholder="Enter a species to search for here!"
+            placeholder="Add a new quote here!"
             className="form-control"
             id="input-box"
             rows="3"
@@ -63,4 +62,4 @@ const styles = {
   }
 };
 
-export default SearchForm;
+export default QuoteForm;

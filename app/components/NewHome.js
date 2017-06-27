@@ -3,8 +3,9 @@ import Panel from "./common/Panel";
 import QuoteForm from "./common/QuoteForm";
 import SearchForm from "./common/SearchForm";
 import API from "../utils/API";
+import NewAPI from "../utils/NewAPI";
 
-class Home extends Component {
+class NewHome extends Component {
   constructor() {
     super();
     this.state = {
@@ -12,24 +13,24 @@ class Home extends Component {
     };
     // Binding getQuotes to our component since we'll be passing this
     // method to child components
-    this.getQuotes = this.getQuotes.bind(this);
+    this.searchSpecies = this.getQuotes.bind(this);
   }
-  // Getting all quotes when the component mounts
-  componentDidMount() {
-    this.getQuotes();
+  // Returning search results when search was conducted
+  componentDidUpdate() {
+    this.searchSpecies();
   }
-  getQuotes() {
-    API.getQuotes().then((res) => {
-      this.setState({ quotes: res.data });
+  searchSpecies() {
+    NewAPI.searchSpecies().then((res) => {
+      this.setState({ species: res.data });
     });
   }
   // A helper method for rendering one panel for each quote
-  renderQuotes() {
-    return this.state.quotes.map(quote => (
+  renderSpecies() {
+    return this.state.species.map(species => (
       <Panel
-        quote={quote}
-        key={quote._id}
-        getQuotes={this.getQuotes}
+        species={quote}
+        key={species._id}
+        searchSpecies={this.searchSpecies}
       />
     ));
   }
