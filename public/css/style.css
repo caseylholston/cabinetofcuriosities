@@ -6,6 +6,10 @@ html {
 body {
   margin-bottom: 60px;
 }
+.leaflet-container {
+        height: 400px;
+        width: 100%;
+      }
 
 .footer {
   position: absolute;

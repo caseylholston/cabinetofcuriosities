@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Panel from "./common/Panel";
 import SearchForm from "./common/SearchForm";
+import MapBox from "./MapBox";
 import API from "../utils/API";
 import NewAPI from "../utils/NewAPI";
 
@@ -42,11 +43,12 @@ class LocationSearch extends Component {
           <h1>Your Favorite Quotes</h1>
           <p>Your very best quotes.</p>
         </div>
-        <div id="mapid"></div>
         <div className="container">
         <div className="row">
             <SearchForm
           />
+            <MapBox
+        />
           {this.renderSpecies()}
         </div>
         </div>
