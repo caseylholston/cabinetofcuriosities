@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
+import Login from "../Login";
 
 const Navbar = () => (
   <nav style={{ marginBottom: 0 }} className="navbar navbar-inverse">
@@ -19,6 +20,9 @@ const Navbar = () => (
         </li>
         <li className={location.pathname === "/favorites" && "active"}>
           <Link to="/account">My Account</Link>
+        </li>
+        <li className={location.pathname === "/favorites" && "active"}>
+          <Link to="/login">Login</Link>
         </li>
       </ul>
     </div>
