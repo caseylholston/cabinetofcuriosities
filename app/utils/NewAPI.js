@@ -3,7 +3,7 @@ import axios from "axios";
 const NewAPI = {
   // Retrieves all species from the db
   getSpecies: function() {
-    return axios.get("/api/quotes");
+    return axios.get("/api/speciesList");
   },
     // Retrieves all locations from the db
   getLocations: function() {
@@ -31,8 +31,11 @@ const NewAPI = {
     const { _id, favorited } = quote;
     return axios.patch(`/api/quotes/${_id}`, { favorited });
   },
-  searchSpecies: function(searchTerm) {
-   return axios.get(`http://eol.org/api/search/${searchTerm}`);
+  searchSpecies: function(newSearch) {
+   return axios.get(`http://eol.org/api/search/${newSearch}`);
+  },
+  searchLocation: function(newSearch) {
+   return axios.get(`http://eol.org/api/search/${newSearch}`);
   }
 };
 

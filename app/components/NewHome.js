@@ -13,7 +13,7 @@ class NewHome extends Component {
     };
     // Binding getQuotes to our component since we'll be passing this
     // method to child components
-    this.searchSpecies = this.getQuotes.bind(this);
+    this.searchSpecies = this.getSpecies.bind(this);
   }
   // Returning search results when search was conducted
   componentDidUpdate() {
@@ -24,11 +24,11 @@ class NewHome extends Component {
       this.setState({ species: res.data });
     });
   }
-  // A helper method for rendering one panel for each quote
+  // A helper method for rendering one panel for each species
   renderSpecies() {
     return this.state.species.map(species => (
       <Panel
-        species={quote}
+        species={species}
         key={species._id}
         searchSpecies={this.searchSpecies}
       />
@@ -39,14 +39,14 @@ class NewHome extends Component {
       <div className="container">
         <div className="row">
           <QuoteForm
-            getQuotes={this.getQuotes}
+            getspecies={this.getSpecies}
           />
           <SearchForm
           />
         </div>
         <div className="row">
           <hr />
-          {this.renderQuotes()}
+          {this.renderSpecies()}
         </div>
       </div>
     );

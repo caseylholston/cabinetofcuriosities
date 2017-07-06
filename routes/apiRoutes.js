@@ -1,6 +1,6 @@
 var express = require("express");
-
 var quotesController = require("../controllers/quotesController");
+var request = require('request');
 
 var router = new express.Router();
 
@@ -12,5 +12,8 @@ router.post("/quotes", quotesController.create);
 router.patch("/quotes/:id", quotesController.update);
 // Delete a specific quote using the id in req.params.id
 router.delete("/quotes/:id", quotesController.destroy);
+//Get the results of the API Call
+router.get("/speciesList", quotesController.search);
+
 
 module.exports = router;

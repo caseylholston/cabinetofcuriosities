@@ -18,7 +18,7 @@ class SearchForm extends Component {
   }
   handleButtonClick() {
     const newSearch = this.state.inputValue;
-    NewAPI.searchSpecies(newSearch).then(this.props.getSpecies);
+    NewAPI.searchLocation(newSearch).then(this.props.getLocation);
     this.setState({ inputValue: "" });
   }
   render() {

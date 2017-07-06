@@ -18,7 +18,13 @@ const API = {
     quote.favorited = !quote.favorited;
     const { _id, favorited } = quote;
     return axios.patch(`/api/quotes/${_id}`, { favorited });
+  },
+
+  //Searches for a species
+  speciesSearch:function(text){
+      return axios.get("/api/speciesList", {text});
   }
+
 };
 
 export default API;

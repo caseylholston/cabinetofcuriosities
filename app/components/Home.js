@@ -5,24 +5,34 @@ import SearchForm from "./common/SearchForm";
 import LocationSearch from "./LocationSearch";
 import SpeciesSearch from "./SpeciesSearch";
 import API from "../utils/API";
+import NewAPI from "../utils/NewAPI";
+
 
 class Home extends Component {
   constructor() {
     super();
     this.state = {
-      quotes: []
+      quotes: [],
+      species:[]
     };
     // Binding getQuotes to our component since we'll be passing this
     // method to child components
     this.getQuotes = this.getQuotes.bind(this);
+    this.getSpecies = this.getSpecies.bind(this);
   }
   // Getting all quotes when the component mounts
   componentDidMount() {
     this.getQuotes();
+    //this.getSpecies();
   }
   getQuotes() {
     API.getQuotes().then((res) => {
       this.setState({ quotes: res.data });
+    });
+  }
+    getSpecies() {
+    NewAPI.getSpecies().then((res) => {
+      this.setState({ species: res.data });
     });
   }
   // A helper method for rendering one panel for each quote

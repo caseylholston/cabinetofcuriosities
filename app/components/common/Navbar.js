@@ -21,8 +21,8 @@ const Navbar = () => (
         <li className={location.pathname === "/favorites" && "active"}>
           <Link to="/account">My Account</Link>
         </li>
-        <li className={location.pathname === "/favorites" && "active"}>
-          <Link to="/login">Login</Link>
+        <li className={location.pathname === "/auth/google" && "active"}>
+          <Link to="/auth/google">Login</Link>
         </li>
       </ul>
     </div>

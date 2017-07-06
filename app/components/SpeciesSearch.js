@@ -9,29 +9,35 @@ class SpeciesSearch extends Component {
   constructor() {
     super();
     this.state = {
-      quotes: []
+      species: []
     };
-    // Binding getQuotes to this component since we'll be passing this method to 
+    // Binding getSpecies to this component since we'll be passing this method to 
     // other components to use
-    this.getQuotes = this.getQuotes.bind(this);
+    this.searchSpecies = this.searchSpecies.bind(this);
   }
-  // Getting all quotes once the component has mounted
-  componentDidMount() {
-    this.getQuotes();
+  // Getting all species once the component updates
+  componentDidUpdate() {
+    this.getSpecies();
   }
-  getQuotes() {
-    API.getQuotes().then((res) => {
-      const favoriteQuotes = res.data.filter(quote => quote.favorited);
-      this.setState({ quotes: favoriteQuotes });
+//   getQuotes() {
+//     API.getQuotes().then((res) => {
+//       const favoriteQuotes = res.data.filter(quote => quote.favorited);
+//       this.setState({ quotes: favoriteQuotes });
+//     });
+//   }
+    searchSpecies() {
+    NewAPI.searchSpecies().then((res) => {
+      const speciesList = res.data.filter(species => species.returned);
+      this.setState({ species: returned });
     });
   }
   // A helper method for rendering one panel for each species
   renderSpecies() {
-    return this.state.quotes.map(quote => (
+    return this.state.species.map(species => (
       <Panel
-        quote={quote}
-        key={quote._id}
-        getQuotes={this.getQuotes}
+        species={species}
+        key={species._id}
+        searchSpecies={this.searchSpecies}
       />
     ));
   }
@@ -39,11 +45,13 @@ class SpeciesSearch extends Component {
     return (
       <div>
         <div className="jumbotron text-center">
-          <h1>Your Favorite Quotes</h1>
-          <p>Your very best quotes.</p>
+          <h1>Find a species</h1>
+          <p>Enter a species below to start your search.</p>
         </div>
         <div className="container">
         <div className="row">
+            <SearchForm
+            />
           {this.renderSpecies()}
         </div>
         </div>

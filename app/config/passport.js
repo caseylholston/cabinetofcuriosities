@@ -23,11 +23,6 @@ module.exports = function(passport) {
         });
     });
     
-    // code for login (use('local-login', new LocalStategy))
-    // code for signup (use('local-signup', new LocalStategy))
-    // code for facebook (use('facebook', new FacebookStrategy))
-    // code for twitter (use('twitter', new TwitterStrategy))
-
     // =========================================================================
     // GOOGLE ==================================================================
     // =========================================================================

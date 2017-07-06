@@ -1,4 +1,5 @@
 var Quote = require("../models/quote");
+var request = require("request");
 
 module.exports = {
   // This method handles retrieving quotes from the db
@@ -46,5 +47,15 @@ module.exports = {
     }).catch(function(err) {
       res.json(err);
     });
+  },
+  //This method will hit the Encyclopedia of Life API
+  search: function(req,res) {
+        var queryUrl ="http://eol.org/api/search/Robin.json";
+	        request(queryUrl, function (error, response, body){
+            console.log(body);
+            res.json(body);
+          });
   }
+    
+
 };

@@ -10,7 +10,7 @@ class LocationSearch extends Component {
   constructor() {
     super();
     this.state = {
-      quotes: []
+      species: []
     };
     // Binding getQuotes to this component since we'll be passing this method to 
     // other components to use
@@ -40,8 +40,8 @@ class LocationSearch extends Component {
     return (
       <div>
         <div className="jumbotron text-center">
-          <h1>Your Favorite Quotes</h1>
-          <p>Your very best quotes.</p>
+          <h1>Search a Location</h1>
+          <p>Enter a location below.</p>
         </div>
         <div className="container">
         <div className="row">

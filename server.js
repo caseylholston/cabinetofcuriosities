@@ -4,6 +4,9 @@ var mongoose = require("mongoose");
 var bluebird = require("bluebird");
 var bodyParser = require("body-parser");
 var routes = require("./routes/routes");
+var passport = require("passport");
+var session = require("express-session");
+var env = require('dotenv').load();
 
 // Set up a default port, configure mongoose, configure our middleware
 var PORT = process.env.PORT || 3000;
