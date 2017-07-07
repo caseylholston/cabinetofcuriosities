@@ -50,10 +50,12 @@ module.exports = {
   },
   //This method will hit the Encyclopedia of Life API
   search: function(req,res) {
-        var queryUrl ="http://eol.org/api/search/Robin.json";
+        var queryUrl ="http://eol.org/api/search/Robin.json?";
 	        request(queryUrl, function (error, response, body){
-            console.log(body);
-            res.json(body);
+            //console.log(body);
+            newBody = body.replace(/"/g,"");
+            console.log("New Body", newBody);
+            res.send(newBody);
           });
   }
     

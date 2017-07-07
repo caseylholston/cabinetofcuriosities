@@ -23,7 +23,7 @@ class Home extends Component {
   // Getting all quotes when the component mounts
   componentDidMount() {
     this.getQuotes();
-    //this.getSpecies();
+    this.getSpecies();
   }
   getQuotes() {
     API.getQuotes().then((res) => {

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const NewAPI = {
-  // Retrieves all species from the db
+  // Retrieves all species from the api endpoint
   getSpecies: function() {
     return axios.get("/api/speciesList");
   },

@@ -21,8 +21,8 @@ const API = {
   },
 
   //Searches for a species
-  speciesSearch:function(text){
-      return axios.get("/api/speciesList", {text});
+  speciesSearch:function(newSearch){
+      return axios.get("/api/speciesList");
   }
 
 };
