@@ -1,6 +1,11 @@
 import axios from "axios";
 
 const NewAPI = {
+  // Saves a new species to the db
+  saveUser: function(token, email) {
+    return axios.post("/api/user", { token,email});
+  },
+    
   // Retrieves all species from the api endpoint
   getSpecies: function() {
     return axios.get("/api/speciesList")

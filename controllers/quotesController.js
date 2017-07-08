@@ -1,4 +1,5 @@
 var Quote = require("../models/quote");
+var User = require("../models/user");
 var request = require("request");
 
 module.exports = {
@@ -26,6 +27,16 @@ module.exports = {
       res.json(err);
     });
   },
+// This method creates new users
+  createUser: function(req, res) {
+    console.log(req.body);
+    User.create(req.body).then(function(doc) {
+      res.json(doc);
+    }).catch(function(err) {
+      res.json(err);
+    });
+  },
+
   // This method handles updating quotes
   update: function(req, res) {
     Quote.update({
@@ -50,6 +61,7 @@ module.exports = {
   },
   //This method will hit the Encyclopedia of Life API
   search: function(req,res) {
+        // var queryUrl ="http://eol.org/api/search/Robin.json?";
         var queryUrl ="http://eol.org/api/search/Robin.json?";
 	        request(queryUrl, function (error, response, body){
             console.log(body);
