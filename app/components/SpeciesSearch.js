@@ -36,7 +36,7 @@ class SpeciesSearch extends Component {
     return this.state.species.map(species => (
       <Panel
         species={species}
-        key={species._id}
+        key={species.id}
         searchSpecies={this.searchSpecies}
       />
     ));

@@ -52,10 +52,13 @@ module.exports = {
   search: function(req,res) {
         var queryUrl ="http://eol.org/api/search/Robin.json?";
 	        request(queryUrl, function (error, response, body){
-            //console.log(body);
-            newBody = body.replace(/"/g,"");
-            console.log("New Body", newBody);
-            res.send(newBody);
+            console.log(body);
+            newObject = JSON.parse(body);
+            console.log(newObject);
+            //newBody = body.replace(/"/g,"");
+            //console.log("New Body", newBody);
+            //console.log(newBody.totalResults);
+            res.send(newObject);
           });
   }
     

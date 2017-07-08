@@ -3,7 +3,11 @@ import axios from "axios";
 const NewAPI = {
   // Retrieves all species from the api endpoint
   getSpecies: function() {
-    return axios.get("/api/speciesList");
+    return axios.get("/api/speciesList")
+     .then(function(response){
+       console.log(response.data.results);
+    return (response.data.results);
+  });  
   },
     // Retrieves all locations from the db
   getLocations: function() {
@@ -33,7 +37,7 @@ const NewAPI = {
   },
   searchSpecies: function(newSearch) {
    return axios.get(`http://eol.org/api/search/${newSearch}`);
-  },
+},
   searchLocation: function(newSearch) {
    return axios.get(`http://eol.org/api/search/${newSearch}`);
   }

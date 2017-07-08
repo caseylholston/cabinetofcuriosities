@@ -32,7 +32,8 @@ class Home extends Component {
   }
     getSpecies() {
     NewAPI.getSpecies().then((res) => {
-      this.setState({ species: res.data });
+      console.log(res);
+      this.setState({ species: res });
     });
   }
   // A helper method for rendering one panel for each quote
@@ -42,6 +43,16 @@ class Home extends Component {
         quote={quote}
         key={quote._id}
         getQuotes={this.getQuotes}
+      />
+    ));
+  }
+
+  renderSpecies() {
+    return this.state.species.map(species => (
+      <Panel
+        species={species.content}
+        key={species.id}
+        searchSpecies={this.searchSpecies}
       />
     ));
   }
@@ -58,6 +69,7 @@ class Home extends Component {
         <div className="row">
           <hr />
           {this.renderQuotes()}
+          {this.renderSpecies()}
         </div>
       </div>
     );
