@@ -5,7 +5,10 @@ const NewAPI = {
   saveUser: function(token, email) {
     return axios.post("/api/user", { token,email});
   },
-    
+  
+  saveSpecies: function(species, user, eolId) {
+    return axios.post("/api/saveSpecies", { species, user, eolId });
+  },
   // Retrieves all species from the api endpoint
   getSpecies: function() {
     return axios.get("/api/speciesList")
@@ -17,10 +20,6 @@ const NewAPI = {
     // Retrieves all locations from the db
   getLocations: function() {
     return axios.get("/api/quotes");
-  },
-  // Saves a new species to the db
-  saveSpecies: function(text) {
-    return axios.post("/api/quotes", { text });
   },
     // Saves a new location to the db
   saveLocation: function(text) {

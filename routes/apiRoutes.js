@@ -16,6 +16,8 @@ router.delete("/quotes/:id", quotesController.destroy);
 router.get("/speciesList", quotesController.search);
 //Create a New User
 router.post("/user", quotesController.createUser);
+//Create a New Species
+router.post("/saveSpecies", quotesController.createSpecies);
 
 
 module.exports = router;

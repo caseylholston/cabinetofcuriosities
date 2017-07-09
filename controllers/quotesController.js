@@ -1,5 +1,6 @@
 var Quote = require("../models/quote");
 var User = require("../models/user");
+var Species = require("../models/species");
 var request = require("request");
 
 module.exports = {
@@ -31,6 +32,16 @@ module.exports = {
   createUser: function(req, res) {
     console.log(req.body);
     User.create(req.body).then(function(doc) {
+      res.json(doc);
+    }).catch(function(err) {
+      res.json(err);
+    });
+  },
+
+  // This method creates new species
+  createSpecies: function(req, res) {
+    console.log("Controller:",req.body);
+    Species.create(req.body).then(function(doc) {
       res.json(doc);
     }).catch(function(err) {
       res.json(err);

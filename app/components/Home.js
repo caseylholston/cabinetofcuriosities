@@ -13,17 +13,20 @@ class Home extends Component {
     super();
     this.state = {
       quotes: [],
-      species:[]
+      species:[],
+      user: localStorage.user
     };
     // Binding getQuotes to our component since we'll be passing this
     // method to child components
     this.getQuotes = this.getQuotes.bind(this);
     this.getSpecies = this.getSpecies.bind(this);
+
   }
   // Getting all quotes when the component mounts
   componentDidMount() {
     this.getQuotes();
     this.getSpecies();
+    
   }
   getQuotes() {
     API.getQuotes().then((res) => {
@@ -52,6 +55,8 @@ class Home extends Component {
       <Panel
         species={species.content}
         key={species.id}
+        user={localStorage.user}
+        eolId={species.id}
         searchSpecies={this.searchSpecies}
       />
     ));

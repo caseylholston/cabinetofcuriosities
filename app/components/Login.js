@@ -6,6 +6,9 @@ class Login extends React.Component{
  
   constructor (props, context) {
     super(props, context);
+    this.state = {
+      user:[]
+    }
   }
  
   responseGoogle (googleUser) {
@@ -13,10 +16,14 @@ class Login extends React.Component{
     var email = googleUser.w3.U3;
     console.log({accessToken: id_token});
     console.log({emailAddress: email});
-    console.log(googleUser);
-    console.log(googleUser.w3.U3);
+    // console.log(googleUser);
+    // console.log(googleUser.w3.U3);
     //anything else you want to do(save to localStorage)...
     NewAPI.saveUser(id_token,email);
+    //use local storage to store the email address
+   localStorage.setItem("user", email);
+
+    //destroy the local and session storage
   }
  
   render () {

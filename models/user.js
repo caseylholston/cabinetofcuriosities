@@ -18,6 +18,10 @@ var userSchema = new Schema({
   userCreated: {
     type: Date,
     default: Date.now
+  },
+  species: {
+    type: Schema.Types.ObjectId,
+    ref: "Species"
   }
 });
 
