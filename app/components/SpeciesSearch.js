@@ -35,12 +35,27 @@ class SpeciesSearch extends Component {
   renderSpecies() {
     return this.state.species.map(species => (
       <Panel
-        species={species}
+        species={species.content}
         key={species.id}
+        user={localStorage.user}
+        eolId={species.id}
         searchSpecies={this.searchSpecies}
       />
     ));
   }
+
+  //     rendersavedSpecies() {
+  //   return this.state.species.map(species => (
+  //     <Panel
+  //       species={species.species}
+  //       key={species._id}
+  //       user={localStorage.user}
+  //       eolId={species.id}
+  //       searchSpecies={this.searchSpecies}
+  //     />
+  //   ));
+  // }
+
   render() {
     return (
       <div>
@@ -53,6 +68,7 @@ class SpeciesSearch extends Component {
             <SearchForm
             />
           {this.renderSpecies()}
+          {/*{this.renderSavedSpecies()}*/}
         </div>
         </div>
       </div>

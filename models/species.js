@@ -10,7 +10,6 @@ var speciesSchema = new Schema({
   
   user : { 
     type: String,
-    unique: true,
     match: [/.+\@.+\..+/, "Please enter a valid e-mail address"]
   },
 

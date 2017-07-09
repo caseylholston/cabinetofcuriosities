@@ -44,6 +44,7 @@ module.exports = {
     Species.create(req.body).then(function(doc) {
       res.json(doc);
     }).catch(function(err) {
+      console.log(err);
       res.json(err);
     });
   },
@@ -84,6 +85,18 @@ module.exports = {
             res.send(newObject);
           });
   }
+
+
     
 
 };
+
+  //   savedSpecies: function(req,res) {
+  //   Species.find({user:req.body})
+  //     .then(function(doc) {
+  //       console.log("Doc: ", doc);
+  //       res.json(doc);
+  //     }).catch(function(err) {
+  //       res.json(err);
+  //     });
+  // }

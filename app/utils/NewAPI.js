@@ -16,15 +16,12 @@ const NewAPI = {
        console.log(response.data.results);
     return (response.data.results);
   });  
+},
+//Get Saved Species
+  savedSpecies: function(user) {
+    return axios.post("/api/savedSpecies", {user});
   },
-    // Retrieves all locations from the db
-  getLocations: function() {
-    return axios.get("/api/quotes");
-  },
-    // Saves a new location to the db
-  saveLocation: function(text) {
-    return axios.post("/api/quotes", { text });
-  },
+
   // Deletes a species from the db
   deleteSpecies: function(id) {
     return axios.delete(`/api/quotes/${id}`);
@@ -48,3 +45,12 @@ const NewAPI = {
 };
 
 export default NewAPI;
+
+  //   // Retrieves all locations from the db
+  // getLocations: function() {
+  //   return axios.get("/api/quotes");
+  // },
+  //   // Saves a new location to the db
+  // saveLocation: function(text) {
+  //   return axios.post("/api/quotes", { text });
+  // },
