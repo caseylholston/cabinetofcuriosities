@@ -50,8 +50,9 @@ module.exports = {
   },
 //This call will pull species from the database
   savedSpecies: function(req,res) {
-    console.log("Saved Req Body:" , req.body)
-    Species.find({})
+    console.log("Saved Req Body:" , req.query)
+    var query = req.query
+    Species.find(query)
       .then(function(doc) {
         console.log("Doc: ", doc);
         res.json(doc);

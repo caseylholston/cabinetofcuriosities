@@ -19,7 +19,13 @@ const NewAPI = {
 },
 //Get Saved Species
   savedSpecies: function(user) {
-    return axios.post("/api/savedSpecies", {user});
+    //console.log("I'm here");
+    return axios.get("/api/savedSpecies", {params: {
+      user:user
+    }}).then(function(response){
+       console.log(response.data);
+    return (response.data);
+  });
   },
 
   // Deletes a species from the db

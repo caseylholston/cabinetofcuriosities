@@ -28,7 +28,7 @@ class Home extends Component {
   componentDidMount() {
     this.getQuotes();
     this.getSpecies();
-    this.savedSpecies();
+    this.getSavedSpecies();
     
   }
   getQuotes() {
@@ -44,9 +44,11 @@ class Home extends Component {
   }
 
     getSavedSpecies(user) {
-    NewAPI.savedSpecies().then((res2) => {
-      console.log("Res2: ", res2);
-      this.setState({ species2: res2 });
+      user = localStorage.user
+      console.log("Get Function:", user);
+    NewAPI.savedSpecies(user).then((result) => {
+      console.log("Res2: ", result);
+      this.setState({ species2: result });
     });
   }
   // A helper method for rendering one panel for each quote
@@ -78,7 +80,7 @@ class Home extends Component {
         species={species2.species}
         key={species2._id}
         user={localStorage.user}
-        eolId={species2.id}
+        eolId={species2.eolId}
         searchSpecies={this.searchSpecies}
       />
     ));
