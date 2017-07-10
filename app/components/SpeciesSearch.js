@@ -9,7 +9,8 @@ class SpeciesSearch extends Component {
   constructor() {
     super();
     this.state = {
-      species: []
+      species: [],
+      species2: []
     };
     // Binding getSpecies to this component since we'll be passing this method to 
     // other components to use
@@ -44,17 +45,17 @@ class SpeciesSearch extends Component {
     ));
   }
 
-  //     rendersavedSpecies() {
-  //   return this.state.species.map(species => (
-  //     <Panel
-  //       species={species.species}
-  //       key={species._id}
-  //       user={localStorage.user}
-  //       eolId={species.id}
-  //       searchSpecies={this.searchSpecies}
-  //     />
-  //   ));
-  // }
+      renderSavedSpecies() {
+    return this.state.species2.map(species2 => (
+      <Panel
+        species={species2.species}
+        key={species2._id}
+        user={localStorage.user}
+        eolId={species2.id}
+        searchSpecies={this.searchSpecies}
+      />
+    ));
+  }
 
   render() {
     return (
@@ -68,7 +69,7 @@ class SpeciesSearch extends Component {
             <SearchForm
             />
           {this.renderSpecies()}
-          {/*{this.renderSavedSpecies()}*/}
+          {this.renderSavedSpecies()}
         </div>
         </div>
       </div>

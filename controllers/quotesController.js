@@ -40,7 +40,7 @@ module.exports = {
 
   // This method creates new species
   createSpecies: function(req, res) {
-    console.log("Controller:",req.body);
+    //console.log("Controller:",req.body);
     Species.create(req.body).then(function(doc) {
       res.json(doc);
     }).catch(function(err) {
@@ -48,6 +48,18 @@ module.exports = {
       res.json(err);
     });
   },
+//This call will pull species from the database
+  savedSpecies: function(req,res) {
+    console.log("Saved Req Body:" , req.body)
+    Species.find({})
+      .then(function(doc) {
+        console.log("Doc: ", doc);
+        res.json(doc);
+      }).catch(function(err) {
+        res.json(err);
+      });
+  },
+
 
   // This method handles updating quotes
   update: function(req, res) {
@@ -76,9 +88,9 @@ module.exports = {
         // var queryUrl ="http://eol.org/api/search/Robin.json?";
         var queryUrl ="http://eol.org/api/search/Robin.json?";
 	        request(queryUrl, function (error, response, body){
-            console.log(body);
+            //console.log(body);
             newObject = JSON.parse(body);
-            console.log(newObject);
+            //console.log(newObject);
             //newBody = body.replace(/"/g,"");
             //console.log("New Body", newBody);
             //console.log(newBody.totalResults);
@@ -91,12 +103,3 @@ module.exports = {
 
 };
 
-  //   savedSpecies: function(req,res) {
-  //   Species.find({user:req.body})
-  //     .then(function(doc) {
-  //       console.log("Doc: ", doc);
-  //       res.json(doc);
-  //     }).catch(function(err) {
-  //       res.json(err);
-  //     });
-  // }

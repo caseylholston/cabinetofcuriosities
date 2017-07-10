@@ -19,7 +19,7 @@ router.post("/user", quotesController.createUser);
 //Create a New Species
 router.post("/saveSpecies", quotesController.createSpecies);
 //Get Saved Species
-//router.get("/savedSpecies", quotesController.savedSpecies);
+router.get("/savedSpecies", quotesController.savedSpecies);
 
 
 module.exports = router;

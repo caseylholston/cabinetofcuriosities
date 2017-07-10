@@ -31,6 +31,8 @@ var speciesSchema = new Schema({
   }
 });
 
+speciesSchema.index({ user: 1, eolId: 1 }, { unique: true }); // schema level
+
 // Pass the schema to the User model
 var Species = mongoose.model("Species", speciesSchema);
 

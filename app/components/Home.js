@@ -14,19 +14,21 @@ class Home extends Component {
     this.state = {
       quotes: [],
       species:[],
-      //species2:[],
+      species2:[],
       user: localStorage.user
     };
     // Binding getQuotes to our component since we'll be passing this
     // method to child components
     this.getQuotes = this.getQuotes.bind(this);
     this.getSpecies = this.getSpecies.bind(this);
+    this.getSavedSpecies = this.getSavedSpecies.bind(this);
 
   }
   // Getting all quotes when the component mounts
   componentDidMount() {
     this.getQuotes();
     this.getSpecies();
+    this.savedSpecies();
     
   }
   getQuotes() {
@@ -36,17 +38,17 @@ class Home extends Component {
   }
     getSpecies() {
     NewAPI.getSpecies().then((res) => {
-      console.log(res);
+      //console.log(res);
       this.setState({ species: res });
     });
   }
 
-  //   getSavedSpecies(user) {
-  //   NewAPI.savedSpecies().then((res2) => {
-  //     console.log("Res2: ", res2);
-  //     this.setState({ species2: res2 });
-  //   });
-  // }
+    getSavedSpecies(user) {
+    NewAPI.savedSpecies().then((res2) => {
+      console.log("Res2: ", res2);
+      this.setState({ species2: res2 });
+    });
+  }
   // A helper method for rendering one panel for each quote
   renderQuotes() {
     return this.state.quotes.map(quote => (
@@ -70,17 +72,17 @@ class Home extends Component {
     ));
   }
 
-  // renderSavedSpecies() {
-  //   return this.state.species2.map(species2 => (
-  //     <Panel
-  //       species={species2.species}
-  //       key={species2._id}
-  //       user={localStorage.user}
-  //       eolId={species2.id}
-  //       searchSpecies={this.searchSpecies}
-  //     />
-  //   ));
-  // }
+  renderSavedSpecies() {
+    return this.state.species2.map(species2 => (
+      <Panel
+        species={species2.species}
+        key={species2._id}
+        user={localStorage.user}
+        eolId={species2.id}
+        searchSpecies={this.searchSpecies}
+      />
+    ));
+  }
   render() {
     return (
       <div className="container">
@@ -95,7 +97,7 @@ class Home extends Component {
           <hr />
           {this.renderQuotes()}
           {this.renderSpecies()}
-          {/*{this.renderSavedSpecies()}*/}
+          {this.renderSavedSpecies()}
         </div>
       </div>
     );
