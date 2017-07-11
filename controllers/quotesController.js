@@ -54,9 +54,10 @@ module.exports = {
     var query = req.query
     Species.find(query)
       .then(function(doc) {
-        console.log("Doc: ", doc);
+       // console.log("Doc: ", doc);
         res.json(doc);
       }).catch(function(err) {
+        console.log(err);
         res.json(err);
       });
   },
@@ -87,7 +88,24 @@ module.exports = {
   //This method will hit the Encyclopedia of Life API
   search: function(req,res) {
         // var queryUrl ="http://eol.org/api/search/Robin.json?";
-        var queryUrl ="http://eol.org/api/search/Robin.json?";
+        //var queryUrl ="http://eol.org/api/search/Robin.json?";
+	        //request(queryUrl, function (error, response, body){
+            //console.log(body);
+            //newObject = JSON.parse(body);
+            //console.log(newObject);
+            //newBody = body.replace(/"/g,"");
+            //console.log("New Body", newBody);
+            //console.log(newBody.totalResults);
+            //res.send(newObject);
+          // });
+  },
+
+  searchSpecies: function(req,res) {
+        //console.log(req);
+        var search = req.query.newSearch;
+        console.log("Req Query Search:",req.query);
+        var queryUrl =`http://eol.org/api/search/${search}.json?`;
+        //var queryUrl ="http://eol.org/api/search/Robin.json?";
 	        request(queryUrl, function (error, response, body){
             //console.log(body);
             newObject = JSON.parse(body);

@@ -14,6 +14,8 @@ router.patch("/quotes/:id", quotesController.update);
 router.delete("/quotes/:id", quotesController.destroy);
 //Get the results of the API Call
 router.get("/speciesList", quotesController.search);
+//Get the results of the New API Call
+router.get("/speciesList2", quotesController.searchSpecies);
 //Create a New User
 router.post("/user", quotesController.createUser);
 //Create a New Species

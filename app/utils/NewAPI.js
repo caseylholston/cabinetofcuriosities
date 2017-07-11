@@ -9,11 +9,11 @@ const NewAPI = {
   saveSpecies: function(species, user, eolId) {
     return axios.post("/api/saveSpecies", { species, user, eolId });
   },
-  // Retrieves all species from the api endpoint
+  //Retrieves all species from the api endpoint
   getSpecies: function() {
-    return axios.get("/api/speciesList")
+    return axios.get("/api/speciesList2")
      .then(function(response){
-       console.log(response.data.results);
+       console.log("Get Species newAPI:", response.data.results);
     return (response.data.results);
   });  
 },
@@ -43,7 +43,13 @@ const NewAPI = {
     return axios.patch(`/api/quotes/${_id}`, { favorited });
   },
   searchSpecies: function(newSearch) {
-   return axios.get(`http://eol.org/api/search/${newSearch}`);
+    return axios.get("/api/speciesList2", {params: {
+      newSearch:newSearch
+    }}).then(function(response){
+       console.log(response.data.results);
+    return (response.data.results);
+  });
+  // return axios.get(`http://eol.org/api/search/${newSearch}`);
 },
   searchLocation: function(newSearch) {
    return axios.get(`http://eol.org/api/search/${newSearch}`);

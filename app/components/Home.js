@@ -17,7 +17,7 @@ class Home extends Component {
       species2:[],
       user: localStorage.user
     };
-    // Binding getQuotes to our component since we'll be passing this
+    // Binding functions to our component since we'll be passing this
     // method to child components
     this.getQuotes = this.getQuotes.bind(this);
     this.getSpecies = this.getSpecies.bind(this);
@@ -31,18 +31,33 @@ class Home extends Component {
     this.getSavedSpecies();
     
   }
+  // Getting all species once the component updates
+  //   componentDidUpdate(prevProps, prevState) {
+  //   if (prevProps.species !== this.props.species) {
+  //     console.log("Updated");
+  //     console.log("Previous state:", prevState);
+  //     console.log("Current state:", this.state);
+  //     this.getSpecies();
+  //   }
+  //   else {
+  //     alert("You have done well. Seymour is very full!");
+  //   }
+  // }
+  
+ 
+
   getQuotes() {
     API.getQuotes().then((res) => {
       this.setState({ quotes: res.data });
     });
   }
-    getSpecies() {
+  getSpecies() {
     NewAPI.getSpecies().then((res) => {
-      //console.log(res);
+      console.log("Get Species Res: ",res);
       this.setState({ species: res });
     });
   }
-
+  
     getSavedSpecies(user) {
       user = localStorage.user
       console.log("Get Function:", user);
@@ -51,6 +66,7 @@ class Home extends Component {
       this.setState({ species2: result });
     });
   }
+
   // A helper method for rendering one panel for each quote
   renderQuotes() {
     return this.state.quotes.map(quote => (
@@ -97,7 +113,7 @@ class Home extends Component {
         </div>
         <div className="row">
           <hr />
-          {this.renderQuotes()}
+          {/*{this.renderQuotes()}*/}
           {this.renderSpecies()}
           {this.renderSavedSpecies()}
         </div>

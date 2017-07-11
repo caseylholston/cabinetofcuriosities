@@ -17,9 +17,9 @@ class SpeciesSearch extends Component {
     this.searchSpecies = this.searchSpecies.bind(this);
   }
   // Getting all species once the component updates
-  componentDidUpdate() {
-    this.getSpecies();
-  }
+  // componentDidUpdate() {
+  //   this.getSpecies();
+  // }
 //   getQuotes() {
 //     API.getQuotes().then((res) => {
 //       const favoriteQuotes = res.data.filter(quote => quote.favorited);
