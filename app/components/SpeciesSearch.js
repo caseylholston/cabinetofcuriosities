@@ -26,12 +26,12 @@ class SpeciesSearch extends Component {
 //       this.setState({ quotes: favoriteQuotes });
 //     });
 //   }
-    searchSpecies() {
-    NewAPI.searchSpecies().then((res) => {
-      const speciesList = res.data.filter(species => species.returned);
-      this.setState({ species: returned });
-    });
-  }
+  //   searchSpecies() {
+  //   NewAPI.searchSpecies().then((res) => {
+  //     const speciesList = res.data.filter(species => species.returned);
+  //     this.setState({ species: returned });
+  //   });
+  // }
   // A helper method for rendering one panel for each species
   renderSpecies() {
     return this.state.species.map(species => (

@@ -15,6 +15,7 @@ class Home extends Component {
       quotes: [],
       species:[],
       species2:[],
+      species3:[],
       user: localStorage.user
     };
     // Binding functions to our component since we'll be passing this
@@ -22,6 +23,7 @@ class Home extends Component {
     this.getQuotes = this.getQuotes.bind(this);
     this.getSpecies = this.getSpecies.bind(this);
     this.getSavedSpecies = this.getSavedSpecies.bind(this);
+    this.returnSpeciesResults= this.returnSpeciesResults.bind(this);
 
   }
   // Getting all quotes when the component mounts
@@ -29,6 +31,7 @@ class Home extends Component {
     this.getQuotes();
     this.getSpecies();
     this.getSavedSpecies();
+    //this.returnSpeciesResults();
     
   }
   // Getting all species once the component updates
@@ -44,7 +47,9 @@ class Home extends Component {
   //   }
   // }
   
- 
+ returnSpeciesResults(){
+  this.setState({species3: resulting })
+ }
 
   getQuotes() {
     API.getQuotes().then((res) => {
@@ -79,12 +84,12 @@ class Home extends Component {
   }
 
   renderSpecies() {
-    return this.state.species.map(species => (
+    return this.state.species3.map(species3 => (
       <Panel
-        species={species.content}
-        key={species.id}
+        species={species3.content}
+        key={species3.id}
         user={localStorage.user}
-        eolId={species.id}
+        eolId={species3.id}
         searchSpecies={this.searchSpecies}
       />
     ));

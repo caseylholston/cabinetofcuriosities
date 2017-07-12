@@ -1,11 +1,11 @@
 import axios from "axios";
 
 const NewAPI = {
-  // Saves a new species to the db
+  // Saves a new user to the db
   saveUser: function(token, email) {
     return axios.post("/api/user", { token,email});
   },
-  
+  // Saves a new species to the db
   saveSpecies: function(species, user, eolId) {
     return axios.post("/api/saveSpecies", { species, user, eolId });
   },
@@ -46,9 +46,10 @@ const NewAPI = {
     return axios.get("/api/speciesList2", {params: {
       newSearch:newSearch
     }}).then(function(response){
-       console.log(response.data.results);
-    return (response.data.results);
-  });
+      console.log("newAPI:", response.data.results);
+      return response.data.results;
+    });
+    
   // return axios.get(`http://eol.org/api/search/${newSearch}`);
 },
   searchLocation: function(newSearch) {
