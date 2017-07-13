@@ -38,19 +38,14 @@ const NewAPI = {
   },
   // Toggles a species sighted property in the db
   sightedSpecies: function(specimen) {
-    console.log("newApi specimen: ", specimen);
+    //console.log("newApi specimen: ", specimen);
     specimen.speciesSighted = !specimen.speciesSighted;
     const { _id, speciesSighted } = specimen;
     return axios.patch(`/api/species/${_id}`, { speciesSighted }).then(function(response){
-      console.log("newAPI:", response.data);
+      //console.log("newAPI:", response.data);
       return response.data;
     });
-  },
-
-  // speciesWishList:{
-
-  // },
-  
+  },  
   
   searchSpecies: function(newSearch) {
     return axios.get("/api/speciesList2", {params: {

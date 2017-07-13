@@ -6,6 +6,10 @@ class Panel extends Component {
   sightedSpecies(specimen) {
     NewAPI.sightedSpecies(specimen).then(this.props.getSavedSpecies);
   }
+
+  speciesWishList(specimen) {
+    NewAPI.speciesWishList(specimen).then(this.props.getSavedSpecies);
+  }
   deleteSpecies(id) {
     API.deleteQuote(id).then(this.props.getSavedSpecies);
   }
@@ -28,13 +32,7 @@ class Panel extends Component {
               <i              
               onClick={() => this.sightedSpecies(this.props.specimen)}
               style={styles.sightedStyle}
-              className={this.props.specimen.speciesSighted ? "fa fa-flag" : "fa fa-flag-o" }
-              aria-hidden="true"
-            />
-              <i
-              onClick={() => this.wishlist(this.props.species)}
-              style={styles.wishlistStyle}
-              className={this.props.specimen.wishlisted ? "fa fa-flag": "fa fa-binoculars" }
+              className={this.props.specimen.speciesSighted ? "fa fa-check-square-o" : "fa fa-binoculars" }
               aria-hidden="true"
             />
             <i
