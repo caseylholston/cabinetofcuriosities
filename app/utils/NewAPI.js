@@ -30,18 +30,26 @@ const NewAPI = {
 
   // Deletes a species from the db
   deleteSpecies: function(id) {
-    return axios.delete(`/api/quotes/${id}`);
+    return axios.delete(`/api/species/${id}`);
   },
     // Deletes a location from the db
   deleteLocation: function(id) {
     return axios.delete(`/api/quotes/${id}`);
   },
   // Toggles a species sighted property in the db
-  favoriteQuote: function(quote) {
-    quote.favorited = !quote.favorited;
-    const { _id, favorited } = quote;
-    return axios.patch(`/api/quotes/${_id}`, { favorited });
+  sightedSpecies: function(specimen) {
+    console.log("newApi specimen: ", specimen);
+    specimen.speciesSighted = !specimen.speciesSighted;
+    const { _id, speciesSighted } = specimen;
+    return axios.patch(`/api/species/${_id}`, { speciesSighted }).then(function(response){
+      console.log("newAPI:", response.data);
+      return response.data;
+    });
   },
+
+  // speciesWishList:{
+
+  // },
   
   
   searchSpecies: function(newSearch) {

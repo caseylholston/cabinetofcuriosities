@@ -50,14 +50,14 @@ module.exports = {
   },
 //This call will pull species from the database
   savedSpecies: function(req,res) {
-    console.log("Saved Req Body:" , req.query)
+    //console.log("Saved Req Body:" , req.query)
     var query = req.query
     Species.find(query)
       .then(function(doc) {
        // console.log("Doc: ", doc);
         res.json(doc);
       }).catch(function(err) {
-        console.log(err);
+        //console.log(err);
         res.json(err);
       });
   },
@@ -65,11 +65,14 @@ module.exports = {
 
   // This method handles updating quotes
   update: function(req, res) {
-    Quote.update({
+    console.log(req.body);
+    console.log(req.params.id);
+    Species.update({
       _id: req.params.id
     },
       req.body
     ).then(function(doc) {
+        console.log("Doc:",doc);
       res.json(doc);
     }).catch(function(err) {
       res.json(err);
@@ -77,7 +80,7 @@ module.exports = {
   },
   // This method handles deleting quotes
   destroy: function(req, res) {
-    Quote.remove({
+    Species.remove({
       _id: req.params.id
     }).then(function(doc) {
       res.json(doc);
@@ -103,7 +106,7 @@ module.exports = {
   searchSpecies: function(req,res) {
         //console.log(req);
         var search = req.query.newSearch;
-        console.log("Req Query Search:",req.query);
+        //console.log("Req Query Search:",req.query);
         var queryUrl =`http://eol.org/api/search/${search}.json?`;
         //var queryUrl ="http://eol.org/api/search/Robin.json?";
 	        request(queryUrl, function (error, response, body){
