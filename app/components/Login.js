@@ -18,7 +18,6 @@ class Login extends React.Component{
     console.log({emailAddress: email});
     // console.log(googleUser);
     // console.log(googleUser.w3.U3);
-    //anything else you want to do(save to localStorage)...
     NewAPI.saveUser(id_token,email);
     //use local storage to store the email address
    localStorage.setItem("user", email);
@@ -30,10 +29,10 @@ class Login extends React.Component{
     return (
       <div>
         <GoogleLogin socialId="624150566627-eps8ouohd96phe4s9h0juel3omrjtmdj.apps.googleusercontent.com"
-                     class="google-login"
+                     class="btn google-login btn-success"
                      scope="profile email"
                      responseHandler={this.responseGoogle}
-                     buttonText="Google Login"/>
+                     buttonText="Login"/>
       </div>
     );
   }

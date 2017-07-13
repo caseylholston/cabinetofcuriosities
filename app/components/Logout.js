@@ -16,7 +16,8 @@ class Logout extends React.Component{
     return (
           <button
             onClick={this.handleLogoutClick}
-            className="btn btn-success"
+            //style={styles.logoutStyle}
+            className="btn logout btn-success"
           >
             Logout
           </button>
@@ -24,5 +25,14 @@ class Logout extends React.Component{
   }
  
 }
+
+// const styles = {
+//   logoutStyle: {
+//     padding: "6px 15px",
+//     lineHeight: "1.57142857",
+//     border: "none",
+//     float: "right"
+//   }
+// };
  
 export default Logout;

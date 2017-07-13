@@ -11,10 +11,6 @@ import Login from "../components/Login";
 const routes = (
   <Router history={browserHistory}>
     <Route path="/" component={Main}>
-    <Route path="favorites" component={Favorites} />
-    <Route path="species" component={SpeciesSearch} />
-    <Route path="location" component={LocationSearch} />
-    {/*<Route Path="myaccount" component={MyAccount} />*/}
     <Route path="login" component={Login} />
     <IndexRoute component={Home} />
     </Route>
