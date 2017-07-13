@@ -42,10 +42,13 @@ const NewAPI = {
     const { _id, favorited } = quote;
     return axios.patch(`/api/quotes/${_id}`, { favorited });
   },
+  
+  
   searchSpecies: function(newSearch) {
     return axios.get("/api/speciesList2", {params: {
       newSearch:newSearch
-    }}).then(function(response){
+    }})
+    .then(function(response){
       console.log("newAPI:", response.data.results);
       return response.data.results;
     });

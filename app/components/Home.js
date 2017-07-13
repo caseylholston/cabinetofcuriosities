@@ -26,30 +26,22 @@ class Home extends Component {
     this.returnSpeciesResults= this.returnSpeciesResults.bind(this);
 
   }
-  // Getting all quotes when the component mounts
+  // Getting species when the component mounts
   componentDidMount() {
     this.getQuotes();
     this.getSpecies();
     this.getSavedSpecies();
-    //this.returnSpeciesResults();
+    this.returnSpeciesResults();
     
   }
-  // Getting all species once the component updates
-  //   componentDidUpdate(prevProps, prevState) {
-  //   if (prevProps.species !== this.props.species) {
-  //     console.log("Updated");
-  //     console.log("Previous state:", prevState);
-  //     console.log("Current state:", this.state);
-  //     this.getSpecies();
-  //   }
-  //   else {
-  //     alert("You have done well. Seymour is very full!");
-  //   }
-  // }
-  
- returnSpeciesResults(){
-  this.setState({species3: resulting })
+
+ returnSpeciesResults(newSearch){
+  NewAPI.searchSpecies(newSearch).then((resulting)=>{
+    console.log("Resulting: ", resulting);
+  this.setState({species3: resulting });
+  });
  }
+
 
   getQuotes() {
     API.getQuotes().then((res) => {
@@ -58,16 +50,16 @@ class Home extends Component {
   }
   getSpecies() {
     NewAPI.getSpecies().then((res) => {
-      console.log("Get Species Res: ",res);
+      //console.log("Get Species Res: ",res);
       this.setState({ species: res });
     });
   }
   
     getSavedSpecies(user) {
       user = localStorage.user
-      console.log("Get Function:", user);
+      //console.log("Get Function:", user);
     NewAPI.savedSpecies(user).then((result) => {
-      console.log("Res2: ", result);
+      //console.log("Res2: ", result);
       this.setState({ species2: result });
     });
   }
@@ -90,7 +82,7 @@ class Home extends Component {
         key={species3.id}
         user={localStorage.user}
         eolId={species3.id}
-        searchSpecies={this.searchSpecies}
+        returnSpeciesResults={this.returnSpeciesResults}    
       />
     ));
   }
@@ -114,12 +106,14 @@ class Home extends Component {
             getQuotes={this.getQuotes}
           />
           <SearchForm
+            returnSpeciesResults={this.returnSpeciesResults}          
           />
         </div>
         <div className="row">
           <hr />
           {/*{this.renderQuotes()}*/}
           {this.renderSpecies()}
+          <h2>Your Saved Species</h2>
           {this.renderSavedSpecies()}
         </div>
       </div>
