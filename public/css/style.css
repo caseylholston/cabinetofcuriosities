@@ -4,6 +4,7 @@ html {
 }
 h2 {
   text-align: center;
+  color: white;
 }
 
 body {
@@ -42,4 +43,17 @@ body {
 
 .species {
   padding-top: 20px;
+}
+
+.container {
+  background-image: url("https://images6.alphacoders.com/389/thumb-1920-389875.jpg");
+  background-position: center;
+}
+
+.panel-body{
+  background-image:url("../images/Old_Paper.jpg");
+  background-position: center;
+  font-size: 18px;
+  text-align: center;
+  font-weight: bold;
 }
