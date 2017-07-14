@@ -48,7 +48,7 @@ class SearchForm extends Component {
             className="btn btn-success"
             style={styles.buttonStyle}
           >
-            Submit
+            Search The Encyclopedia of Life
           </button>
         </div>
       </div>

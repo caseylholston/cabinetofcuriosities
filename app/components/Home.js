@@ -116,12 +116,11 @@ class Home extends Component {
           <hr />
           {/*{this.renderQuotes()}*/}
           {this.renderSpecies()}
-          <hr />
+          {/*<hr />*/}
         </div>
         <div className="row">
           <h2>My Cabinet of Curiosities</h2>
           {this.renderSavedSpecies()}
-          <hr />
         </div>
       </div>
     );

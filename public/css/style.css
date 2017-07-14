@@ -9,6 +9,10 @@ h2 {
 
 body {
   margin-bottom: 60px;
+  font-family: 'Roboto Mono', monospace;
+  font-family: 'Rokkitt', serif;
+  font-family: 'PT Mono', monospace;
+  font-family: 'Slabo 13px', serif;
 }
 .leaflet-container {
         height: 400px;
@@ -69,9 +73,11 @@ body {
 }
 
 .panel-body{
-  background-image:url("../images/Old_Paper.jpg");
+  background-image:url("../images/Old_Paper_Ragged_Edge.png");
   background-position: center;
   font-size: 16px;
+  color: black;
   text-align: center;
   font-weight: bold;
 }
+
