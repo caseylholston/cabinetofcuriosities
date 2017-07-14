@@ -2,6 +2,10 @@ html {
   position: relative;
   min-height: 100%;
 }
+
+.navbar-inverse {
+  /*background-color:#4caf50;*/
+}
 h2 {
   text-align: center;
   color: white;
@@ -79,5 +83,17 @@ body {
   color: black;
   text-align: center;
   font-weight: bold;
+}
+
+.form-group {
+  color: white;
+  font-family: 'Roboto Mono', monospace;
+  font-family: 'Rokkitt', serif;
+  font-family: 'PT Mono', monospace;
+  font-family: 'Slabo 13px', serif;
+  text-align:  center;
+  font-size: 20px;
+  margin-bottom: 60;
+  margin-top: 60;
 }
 

@@ -20,7 +20,7 @@ class Login extends React.Component{
     // console.log(googleUser.w3.U3);
     NewAPI.saveUser(id_token,email);
     //use local storage to store the email address
-   localStorage.setItem("user", email);
+    localStorage.setItem("user", email);
 
     //destroy the local and session storage
   }

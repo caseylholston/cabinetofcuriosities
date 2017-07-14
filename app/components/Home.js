@@ -13,7 +13,6 @@ class Home extends Component {
   constructor() {
     super();
     this.state = {
-      //quotes: [],
       species:[],
       species2:[],
       species3:[],
@@ -21,16 +20,12 @@ class Home extends Component {
     };
     // Binding functions to our component since we'll be passing this
     // method to child components
-    //this.getQuotes = this.getQuotes.bind(this);
-    this.getSpecies = this.getSpecies.bind(this);
     this.getSavedSpecies = this.getSavedSpecies.bind(this);
     this.returnSpeciesResults= this.returnSpeciesResults.bind(this);
 
   }
   // Getting species when the component mounts
   componentDidMount() {
-    //this.getQuotes();
-    //this.getSpecies();
     this.getSavedSpecies();
     this.returnSpeciesResults();
     
@@ -38,43 +33,19 @@ class Home extends Component {
 
  returnSpeciesResults(newSearch){
   NewAPI.searchSpecies(newSearch).then((resulting)=>{
-    console.log("Resulting: ", resulting);
+    //console.log("Resulting: ", resulting);
   this.setState({species3: resulting });
   });
  }
 
-
-  // getQuotes() {
-  //   API.getQuotes().then((res) => {
-  //     this.setState({ quotes: res.data });
-  //   });
-  // }
-  getSpecies() {
-    NewAPI.getSpecies().then((res) => {
-      //console.log("Get Species Res: ",res);
-      this.setState({ species: res });
-    });
-  }
-  
-    getSavedSpecies(user) {
-      user = localStorage.user
-      //console.log("Get Function:", user);
-    NewAPI.savedSpecies(user).then((result) => {
-      console.log("Res2: ", result);
-      this.setState({ species2: result });
-    });
-  }
-
-  // A helper method for rendering one panel for each quote
-  // renderQuotes() {
-  //   return this.state.quotes.map(quote => (
-  //     <Panel
-  //       quote={quote}
-  //       key={quote._id}
-  //       getQuotes={this.getQuotes}
-  //     />
-  //   ));
-  // }
+  getSavedSpecies(user) {
+    user = localStorage.user
+    //console.log("Get Function:", user);
+  NewAPI.savedSpecies(user).then((result) => {
+    //console.log("Res2: ", result);
+    this.setState({ species2: result });
+  });
+}
 
   renderSpecies() {
     return this.state.species3.map(species3 => (
@@ -105,22 +76,17 @@ class Home extends Component {
     return (
       <div className="container">
         <div className="row">
-          {/*<QuoteForm
-            getQuotes={this.getQuotes}
-          />*/}
+          <h2>My Cabinet of Curiosities</h2>
+          {this.renderSavedSpecies()}
+        </div>
+        <div className="row">
+          <hr />
           <SearchForm
             returnSpeciesResults={this.returnSpeciesResults}          
           />
         </div>
         <div className="row">
-          <hr />
-          {/*{this.renderQuotes()}*/}
           {this.renderSpecies()}
-          {/*<hr />*/}
-        </div>
-        <div className="row">
-          <h2>My Cabinet of Curiosities</h2>
-          {this.renderSavedSpecies()}
         </div>
       </div>
     );

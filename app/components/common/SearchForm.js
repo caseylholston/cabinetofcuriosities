@@ -30,11 +30,14 @@ class SearchForm extends Component {
       <div className="col-md-6 col-md-offset-3">
         <div style={styles.formStyle} className="form-group">
           <label htmlFor="input-box">
-            Enter your search below
+            What are you searching for?
           </label>
           <textarea
             style={{
-              resize: "none"
+              resize: "none",
+              fontSize:"2opx",
+              color: "white",
+              textAlign: "center"
             }}
             onChange={this.handleInputChange}
             value={this.state.inputValue}
@@ -58,12 +61,8 @@ class SearchForm extends Component {
 
 const styles = {
   buttonStyle: {
-    float: "right",
+    textAlign: "center",
     marginTop: 10
-  },
-  formStyle: {
-    marginBottom: 60,
-    marginTop: 60
   }
 };
 

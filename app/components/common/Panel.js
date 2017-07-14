@@ -3,8 +3,8 @@ import API from "../../utils/API";
 import NewAPI from "../../utils/NewAPI";
 
 class Panel extends Component {
-  saveSpecies(species, user, eolId) {
-    NewAPI.saveSpecies(species, user, eolId).then(this.props.getSavedSpecies);
+  saveSpecies(species, user, eolId, link) {
+    NewAPI.saveSpecies(species, user, eolId, link).then(this.props.getSavedSpecies);
   }
   
   // favoriteQuote toggles a quote's favorite status in the db and then

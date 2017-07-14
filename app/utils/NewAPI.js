@@ -6,8 +6,8 @@ const NewAPI = {
     return axios.post("/api/user", { token,email});
   },
   // Saves a new species to the db
-  saveSpecies: function(species, user, eolId) {
-    return axios.post("/api/saveSpecies", { species, user, eolId });
+  saveSpecies: function(species, user, eolId, link) {
+    return axios.post("/api/saveSpecies", { species, user, eolId, link });
   },
   //Retrieves all species from the api endpoint
   getSpecies: function() {

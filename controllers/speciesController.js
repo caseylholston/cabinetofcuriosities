@@ -4,30 +4,6 @@ var Species = require("../models/species");
 var request = require("request");
 
 module.exports = {
-  // This method handles retrieving quotes from the db
-  index: function(req, res) {
-    var query;
-    if (req.query) {
-      query = req.query;
-    }
-    else {
-      query = req.params.id ? { _id: req.params.id } : {};
-    }
-    Quote.find(query)
-      .then(function(doc) {
-        res.json(doc);
-      }).catch(function(err) {
-        res.json(err);
-      });
-  },
-  // This method handles creating new quotes
-  create: function(req, res) {
-    Quote.create(req.body).then(function(doc) {
-      res.json(doc);
-    }).catch(function(err) {
-      res.json(err);
-    });
-  },
 // This method creates new users
   createUser: function(req, res) {
     console.log(req.body);
@@ -119,9 +95,6 @@ module.exports = {
             res.send(newObject);
           });
   }
-
-
-    
 
 };
 

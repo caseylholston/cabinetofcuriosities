@@ -1,22 +1,20 @@
 var express = require("express");
-var quotesController = require("../controllers/quotesController");
-var request = require('request');
-
+var speciesController = require("../controllers/speciesController");
 var router = new express.Router();
 
-router.patch("/species/:id", quotesController.update);
+router.patch("/species/:id", speciesController.update);
 // Delete a specific quote using the id in req.params.id
-router.delete("/quotes/:id", quotesController.destroy);
+router.delete("/species/:id", speciesController.destroy);
 //Get the results of the API Call
-router.get("/speciesList", quotesController.search);
+router.get("/speciesList", speciesController.search);
 //Get the results of the New API Call
-router.get("/speciesList2", quotesController.searchSpecies);
+router.get("/speciesList2", speciesController.searchSpecies);
 //Create a New User
-router.post("/user", quotesController.createUser);
+router.post("/user", speciesController.createUser);
 //Create a New Species
-router.post("/saveSpecies", quotesController.createSpecies);
+router.post("/saveSpecies", speciesController.createSpecies);
 //Get Saved Species
-router.get("/savedSpecies", quotesController.savedSpecies);
+router.get("/savedSpecies", speciesController.savedSpecies);
 
 
 module.exports = router;

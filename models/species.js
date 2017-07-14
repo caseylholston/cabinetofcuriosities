@@ -13,6 +13,10 @@ var speciesSchema = new Schema({
     match: [/.+\@.+\..+/, "Please enter a valid e-mail address"]
   },
 
+  link: {
+    type: String
+  },
+
   eolId: {
       type:Number
   },
