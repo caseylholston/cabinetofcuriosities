@@ -11,7 +11,7 @@ class Panel extends Component {
     NewAPI.speciesWishList(specimen).then(this.props.getSavedSpecies);
   }
   deleteSpecies(id) {
-    API.deleteQuote(id).then(this.props.getSavedSpecies);
+    NewAPI.deleteSpecies(id).then(this.props.getSavedSpecies);
   }
   
   // favoriteQuote toggles a quote's favorite status in the db and then
